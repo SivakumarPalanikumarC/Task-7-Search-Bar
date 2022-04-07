@@ -1,48 +1,40 @@
-const btns = document.querySelectorAll('.btn');
-const storeProducts = document.querySelectorAll('.store-product');
-
-for (let i of btns) {
-
-    btns[i].addEventListener('click', (e) => {
-        e.preventDefault()
-        
-        const filter = e.target.dataset.filter;
-        console.log(filter);
-        
-        storeProducts.forEach((product)=> {
-            if (filter === 'all'){
-                product.style.display = 'block'
-            } else {
-                if (product.classList.contains(filter)){
-                    product.style.display = 'block'
-                } else {
-                    product.style.display = 'none'
-                }
-            }
-        });
-    });
-}
+function myFunction() {
 
 
-const search = document.getElementById("search");
-const productName = document.querySelectorAll(".product-details h2");
 
-
-search.addEventListener("keyup", filterProducts);
-
-
-function filterProducts(e) {
-    const text = e.target.value.toLowerCase();
+    var input, filter, ul, li, a, i, txtValue;
+  
+    input = document.getElementById('myInput');
+  
+    filter = input.value.toUpperCase();
+  
+    ul = document.getElementById("myUL");
+  
+    li = ul.getElementsByTagName('li');
+  
+  
+  
+  
     
-    productName.forEach(function(product) {
-        const item = product.firstChild.textContent;
-        if (item.toLowerCase().indexOf(text) != -1) {
-            product.parentElement.parentElement.style.display = "block"
-        } else {
-            product.parentElement.parentElement.style.display = "none"
-        }
-    })
-}
-
+  
+    for (i = 0; i < li.length; i++) {
+  
+      a = li[i].getElementsByTagName("a")[0];
+  
+      txtValue = a.textContent || a.innerText;
+  
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+  
+        li[i].style.display = "";
+  
+      } else {
+  
+        li[i].style.display = "none";
+  
+      }
+  
+    }
+  
+  }
 
 
