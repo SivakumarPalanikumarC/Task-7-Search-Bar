@@ -1,7 +1,7 @@
 const btns = document.querySelectorAll('.btn');
 const storeProducts = document.querySelectorAll('.store-product');
 
-for (i = 0; i < btns.length; i++) {
+for (let i = 0; i < btns.length; i++) {
 
     btns[i].addEventListener('click', (e) => {
         e.preventDefault()
@@ -21,7 +21,7 @@ for (i = 0; i < btns.length; i++) {
             }
         });
     });
-};
+}
 
 
 const search = document.getElementById("search");
